@@ -1,13 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-header.bg-img {
-  position: relative;
-  /*background-color: #343a40;*/
-  background-image: url('../src/assets/landing-page/city.jpg');
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+header {
+  margin-top: 60px;
 }
-
+section.section-main {
+  margin-top: 20px;
+}
 .main-btn {
   display: inline-block;
   font-weight: 500;

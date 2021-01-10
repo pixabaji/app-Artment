@@ -1,2 +1,8 @@
-
-
+.bg-img {
+  position: relative;
+  /*background-color: #343a40;*/
+  background-image: url('../../../assets/landing-page/house_nime.png');
+  background-size: cover;
+  padding-top: 12rem;
+  padding-bottom: 13rem;
+}

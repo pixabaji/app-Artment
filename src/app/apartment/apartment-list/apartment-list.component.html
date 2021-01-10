@@ -1,0 +1,65 @@
+<header>
+  <div class="container text-center">
+    <h1>Find the place that's right for you!</h1>
+    <p class="lead">Create a search below</p>
+  </div>
+</header>
+<section class="bg-img text-center section-main">
+    <div class="overlay"></div>
+    <div class="container">
+
+    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="search...">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="button" class="btn btn-block btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i> </button>
+              </div>
+            </div>
+          </form>
+        </div>
+     </div>
+</section>
+<section *ngIf="isLoading">
+  <div class="container">
+    <div class="row">
+      <h2>Fetching Apartments...</h2>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="!isLoading" class="text-left section-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <ul class="list-group shadow" *ngFor="let apt of apartments; let i = index">
+          <!-- list group item-->
+          <a (click)="onClickApartment(apt)" class="">
+            <li class="list-group-item">
+              <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">{{ sessionStorage.firstCharUpper(apt.type)}}</h5>
+                        <p class="font-italic text-muted mb-0 small">{{ apt.description }}}</p>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <h6 class="font-weight-bold my-2">$ {{ apt.monthlyRate }} per month</h6>
+                            <ul class="list-inline">
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                            </ul>
+                        </div>
+                </div>
+                <img src="{{ apt.imageUrls[0] }}" alt="Generic placeholder image" width="200" height="200" class="ml-lg-5 order-1 order-lg-2">
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
